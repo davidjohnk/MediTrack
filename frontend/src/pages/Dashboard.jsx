@@ -8,7 +8,6 @@ const Dashboard = () => {
   const [stats, setStats] = useState({ medicines: 0, appointments: 0, records: 0 });
   const [recentRecords, setRecentRecords] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
 
   useEffect(() => {
     const loadData = async () => {
@@ -29,7 +28,9 @@ const Dashboard = () => {
         });
         setRecentRecords(recRes.data.slice(0, 5));
       } catch (err) {
-        setError('Could not load dashboard data.');
+        console.error('Failed to load dashboard data:', err);
+        setStats({ medicines: 0, appointments: 0, records: 0 });
+        setRecentRecords([]);
       } finally {
         setLoading(false);
       }
@@ -43,8 +44,6 @@ const Dashboard = () => {
     <div>
       <h1>Welcome back, {user?.name}</h1>
       <p className="page-subtitle">Here's an overview of your health information.</p>
-
-      {error && <div className="alert alert-error">{error}</div>}
 
       <div className="card-grid">
         <div className="card">

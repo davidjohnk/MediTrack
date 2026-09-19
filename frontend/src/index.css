@@ -353,6 +353,15 @@ input:disabled {
   color: var(--text);
 }
 
+.btn-logout {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.5rem 0.8rem;
+  font-size: 0.78rem;
+  border-radius: 10px;
+}
+
 .btn-danger {
   background: linear-gradient(135deg, #ef4444, #dc2626);
   color: #fff;
@@ -551,6 +560,7 @@ input:disabled {
   .sidebar-brand {
     margin: 0;
     font-size: 1.2rem;
+    padding-left: 0;
   }
 
   .sidebar-nav {

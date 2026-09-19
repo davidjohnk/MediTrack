@@ -41,7 +41,7 @@ const Layout = ({ children }) => {
         </nav>
         <div className="sidebar-footer">
           <div className="sidebar-user">{user?.name}</div>
-          <button className="btn btn-secondary" onClick={handleLogout}>
+          <button className="btn btn-logout" onClick={handleLogout}>
             Logout
           </button>
         </div>
