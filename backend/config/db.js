@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
+  if (!process.env.MONGO_URI) {
+    console.error('MONGO_URI is missing. Set it in your .env file before starting the backend.');
+    return;
+  }
+
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log('MongoDB connected');
