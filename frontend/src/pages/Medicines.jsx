@@ -25,7 +25,8 @@ const Medicines = () => {
       const { data } = await api.get('/medicines');
       setMedicines(data);
     } catch (err) {
-      setError('Could not load medicines.');
+      console.error('Could not load medicines.', err);
+      setMedicines([]);
     } finally {
       setLoading(false);
     }

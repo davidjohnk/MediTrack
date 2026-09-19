@@ -14,7 +14,8 @@ const Documents = () => {
       const { data } = await api.get('/documents');
       setDocuments(data);
     } catch (err) {
-      setError('Could not load documents.');
+      console.error('Could not load documents.', err);
+      setDocuments([]);
     } finally {
       setLoading(false);
     }

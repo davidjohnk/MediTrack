@@ -16,7 +16,8 @@ const HealthRecords = () => {
       const { data } = await api.get('/health-records');
       setRecords(data);
     } catch (err) {
-      setError('Could not load health records.');
+      console.error('Could not load health records.', err);
+      setRecords([]);
     } finally {
       setLoading(false);
     }
