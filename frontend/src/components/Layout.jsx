@@ -23,7 +23,10 @@ const Layout = ({ children }) => {
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <div className="sidebar-brand">MediTrack</div>
+        <div className="sidebar-brand">
+          <span className="brand-mark">+</span>
+          MediTrack
+        </div>
         <nav className="sidebar-nav">
           {links.map((link) => (
             <NavLink
