@@ -14,6 +14,8 @@ const documentRoutes = require('./routes/documentRoutes');
 
 const app = express();
 
+app.disable('x-powered-by');
+
 // Connect to MongoDB
 connectDB();
 
@@ -28,6 +30,10 @@ app.use(express.json({ limit: '10mb' }));
 
 // Serve uploaded files (e.g. http://localhost:5000/uploads/filename.pdf)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.get('/', (req, res) => {
+  res.json({ app: 'MediTrack API', status: 'online' });
+});
 
 // Simple health check route, useful for testing the server is alive
 app.get('/api/health', (req, res) => {
